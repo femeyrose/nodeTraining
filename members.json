@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "superhero": "Batman",
+        "publisher": "DC Comics",
+        "alter_ego": "Bruce Wayne",
+        "first_appearance": "Detective Comics #27",
+        "characters": "Bruce Wayne"
+    },
+    {
+        "id": 2,
+        "superhero": "Superman",
+        "publisher": "DC Comics",
+        "alter_ego": "Kal-El",
+        "first_appearance": "Action Comics #1",
+        "characters": "Kal-El"
+    },
+    {
+        "name": "femey",
+        "age": 21,
+        "id": "0fa44957-1e29-4175-86d5-4e1f08ee957e"
+    }
+]
