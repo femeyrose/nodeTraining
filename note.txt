@@ -1,0 +1,2 @@
+socket.io--is a protocol
+for connecting the server and client and made comm
