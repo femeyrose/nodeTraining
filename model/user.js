@@ -33,6 +33,22 @@ connection.query(queryStr,function(err,results,fields){
 
 }
 
+UserModel.getUserByEmailID=(userData)=>{
+    return new Promise((resolve,reject)=>{
+        // creating a db connection
+        // run query db with the user email
+        const connection=mysql.createConnection(connectionStr)
+        const queryStr=`SELECT * FROM projectdb.user where email='${userData.email}'`
+        console.log(queryStr);
+        connection.query(queryStr,
+            function(err,result,fields){
+                if(err) reject(err)
+                else resolve(result)
+            })
+    
+    })
+}
+
 
 
 module.exports = UserModel

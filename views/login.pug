@@ -1,0 +1,20 @@
+extends layout 
+        
+block content
+    h1 Login
+    h2 #{title}
+    h3 #{message}
+
+    form(action="/user/login", method="post")
+      
+        .row
+            .input-field.col.s6
+                input#email.validate(type ="email", name="email")
+                label(for="email")  Email
+                br
+            .input-field.col.s6
+                input#password.validate(type ="password", name="password")
+                label(for="password")  password
+                br
+        .row
+            button.btn(type="subnit") Submit
