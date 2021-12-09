@@ -20,15 +20,15 @@ router.post('/saveForm', async (req, res) => {
     const valid = signUpValidation(req.body)
     // console.log(valid.error.details)
     if (valid.error) {
-        res.render('signup', { message: valid.error.details[0].message })
+        res.status(400).render('signup', { message: valid.error.details[0].message })
     }
 
     try {
         const result = await UserModel.saveNewUser(req.body)
-        res.render('signup', { title: 'new user signup screen', message: 'success' })
+        res.status(200).render('signup', { title: 'new user signup screen', message: 'success' })
     } catch (error) {
         console.log(error)
-        res.render('signup', { title: 'new user signup screen', message: 'fail' })
+        res.status(400).render('signup', { title: 'new user signup screen', message: 'fail' })
     }
 
 
@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
     try {
         console.log(valid)
         if (valid.error) {
-            res.render('login', { message: valid.error.details[0].message })
+            res.status(400).render('login', { message: valid.error.details[0].message })
         }
 
         //check user with email, password matches with password in db
@@ -65,15 +65,15 @@ router.post('/login', async (req, res) => {
                 if (isValidPassword) {
                    
                     req.session.userID=result[0].id;
-                    res.redirect('/articles')
+                    res.status(200).redirect('/articles')
                     // res.render('add_article', { message: 'New user added' })
                 }
                 else {
-                    res.render('login', { message: 'invalid password' })
+                    res.status(400).render('login', { message: 'invalid password' })
                 }
             }
             else {
-                res.render('login', { message: `user with ${req.body.email} not found` })
+                res.status(400).render('login', { message: `user with ${req.body.email} not found` })
             }
 
 
@@ -81,7 +81,7 @@ router.post('/login', async (req, res) => {
     }
     catch (error) {
         console.log(error)
-        res.render('login', { message: 'login failed' })
+        res.status(400).render('login', { message: 'login failed' })
     }
 })
 
